@@ -3,13 +3,13 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import type { Post } from '@/lib/supabase/types';
 
 type Props = { params: { slug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const supabase = createServerSupabaseClient();
+  const supabase = createClient();
   const { data } = await supabase
     .from('posts')
     .select<'*', Post>('title,slug,category,featured_image,created_at')
