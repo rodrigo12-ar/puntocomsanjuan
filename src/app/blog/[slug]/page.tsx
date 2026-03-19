@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="mt-10">
         <h2 className="text-xl font-extrabold tracking-tight">Artículos relacionados</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {related?.map((x) => (
+          {related?.map((x: any) => (
             <Link key={x.id} href={`/blog/${x.slug}`} className="card p-5 hover:border-slate-700 transition">
               <div className="text-sm font-bold text-slate-50">{x.title}</div>
               <div className="mt-2 text-sm font-semibold text-brand">Leer →</div>
