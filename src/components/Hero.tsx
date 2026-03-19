@@ -11,10 +11,10 @@ export function Hero() {
 
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-2 md:items-center md:py-20">
         <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/40 px-3 py-1 text-xs text-slate-200">
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-900/40 px-3 py-1 text-xs text-slate-200">
             Servicio técnico informático en {SITE.city}
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl text-brand">
             Servicio Técnico Informático en {SITE.city}
           </h1>
           <p className="text-base text-slate-300 md:text-lg">
@@ -28,7 +28,7 @@ export function Hero() {
               Contactar por WhatsApp
             </a>
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-600">
             Diagnóstico profesional · Respuesta rápida · Atención local
           </p>
         </div>
@@ -48,7 +48,7 @@ export function Hero() {
                 { k: '🛡️', t: 'Seguridad' },
                 { k: '💬', t: 'Soporte' }
               ].map((x) => (
-                <div key={x.t} className="rounded-xl border border-slate-800 bg-slate-950/40 p-3">
+                <div key={x.t} className="rounded-xl border border-slate-200 bg-slate-950/40 p-3">
                   <div className="text-lg">{x.k}</div>
                   <div className="text-sm font-semibold text-slate-100">{x.t}</div>
                 </div>

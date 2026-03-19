@@ -25,13 +25,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const ldJson = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: SITE.name,
-    image: `${SITE.url}/og-image.jpg`,
-    url: SITE.url,
-    telephone: SITE.whatsappNumberE164,
+    name: BUSINESS.name,
+    image: `${BUSINESS.url}/og-image.jpg`,
+    url: BUSINESS.url,
+    telephone: BUSINESS.whatsappNumberE164,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: SITE.city,
+      addressLocality: BUSINESS.city,
       addressRegion: 'San Juan',
       addressCountry: 'AR'
     },
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     areaServed: {
       '@type': 'City',
-      name: SITE.city
+      name: BUSINESS.city
     },
     sameAs: []
   };

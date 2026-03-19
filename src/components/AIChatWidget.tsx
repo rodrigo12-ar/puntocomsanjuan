@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { SITE } from '@/lib/site';
 import { toWaMePrefillUrl } from '@/lib/utils';
 
@@ -167,5 +167,12 @@ export function AIChatWidget() {
       ) : null}
     </div>
   );
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 1200); // 1.2 segundos (queda más natural)
+  
+    return () => clearTimeout(timer);
+  }, []);
 }
 

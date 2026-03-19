@@ -6,9 +6,9 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#2563EB',
-          dark: '#1D4ED8',
-          light: '#60A5FA'
+          DEFAULT: '#22c55e',
+          dark: '#0f172a',
+          light: '#86efac'
         }
       },
       boxShadow: {

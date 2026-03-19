@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import type { Post } from '@/lib/supabase/types';
 
 export const metadata: Metadata = {
@@ -20,17 +20,20 @@ export default async function BlogIndexPage({ searchParams }: Props) {
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
-  const supabase = createServerSupabaseClient();
+  const supabase = await createClient();
   let query = supabase
     .from('posts')
-    .select<'*', Post>('id,title,slug,content,category,featured_image,created_at', { count: 'exact' })
+    .select('id,title,slug,content,category,featured_image,created_at', { count: 'exact' })
     .order('created_at', { ascending: false });
 
   if (q) {
     query = query.ilike('title', `%${q}%`);
   }
 
-  const { data: posts, count } = await query.range(from, to);
+  const { data: posts, count, error } = await query.range(from, to);
+  console.log("BLOG POSTS:", posts);
+  console.log("BLOG COUNT:", count);
+  console.log("BLOG ERROR:", error);
   const totalPages = count ? Math.ceil(count / pageSize) : 1;
 
   return (
