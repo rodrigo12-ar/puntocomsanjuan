@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { AdminLoginForm } from '@/components/AdminLoginForm';
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminLoginPage() {
-  const supabase = createServerSupabaseClient();
+  const supabase = createClient();
   const {
     data: { session }
   } = await supabase.auth.getSession();
