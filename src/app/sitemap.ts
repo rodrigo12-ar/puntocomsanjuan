@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import type { Post } from '@/lib/supabase/types';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   try {
-    const supabase = createServerSupabaseClient();
+    const supabase = createClient();
     const { data: posts } = await supabase
       .from('posts')
       .select<'*', Post>('slug,created_at')

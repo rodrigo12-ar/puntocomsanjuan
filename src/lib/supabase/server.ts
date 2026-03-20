@@ -1,4 +1,4 @@
-import { createServerClient } from '@supabase/ssr';
+import { createClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 
 export async function createClient() {
@@ -11,7 +11,7 @@ export async function createClient() {
     throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY');
   }
 
-  return createServerClient(url, anonKey, {
+  return createClient(url, anonKey, {
     cookies: {
       get(name: string) {
         return cookieStore.get(name)?.value;
