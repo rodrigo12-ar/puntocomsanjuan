@@ -1,9 +1,9 @@
 export function WhyChooseUs() {
   const items = [
-    { title: 'Fast service', desc: 'Tiempos de respuesta cortos y prioridades claras.' },
-    { title: 'Professional diagnostics', desc: 'Diagnóstico preciso antes de intervenir.' },
-    { title: 'Affordable prices', desc: 'Presupuesto transparente y opciones por etapa.' },
-    { title: 'Trusted technical support', desc: 'Soporte confiable para hogares y comercios.' }
+    { title: 'Servicios Rapidos', desc: 'Tiempos de respuesta cortos y prioridades claras.' },
+    { title: 'Diagnosticos Profecionales', desc: 'Diagnóstico preciso antes de intervenir.' },
+    { title: 'Presupuestos Transparentes', desc: 'Presupuesto transparente y opciones por etapa.' },
+    { title: 'Soporte Confiable', desc: 'Soporte confiable para hogares y comercios.' }
   ] as const;
 
   return (
@@ -12,12 +12,14 @@ export function WhyChooseUs() {
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         {items.map((x) => (
           <div key={x.title} className="card p-6">
-            <div className="text-base font-bold text-slate-50">{x.title}</div>
-            <p className="mt-2 text-sm text-slate-300">{x.desc}</p>
+            <div className="text-base font-bold text-slate-90">{x.title}</div>
+            <p className="mt-2 text-sm text-slate-900">{x.desc}</p>
           </div>
         ))}
       </div>
     </section>
   );
 }
+
+
 

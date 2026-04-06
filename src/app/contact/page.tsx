@@ -12,7 +12,7 @@ export default function ContactPage() {
       <div className="grid gap-10 md:grid-cols-2">
         <div className="space-y-4">
           <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">Contacto</h1>
-          <p className="text-slate-300">
+          <p className="text-slate-900">
             Contanos qué equipo tenés y qué problema aparece. Si podés, agregá fotos o capturas del error.
           </p>
           <a className="btn-primary inline-flex" href={SITE.whatsappWaMe} target="_blank" rel="noreferrer">
@@ -20,8 +20,8 @@ export default function ContactPage() {
           </a>
 
           <div className="card p-6">
-            <div className="text-sm font-semibold text-slate-100">Tips para diagnóstico rápido</div>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            <div className="text-sm font-semibold text-slate-900">Tips para diagnóstico rápido</div>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-900">
               <li>Modelo del equipo (si lo sabés).</li>
               <li>Sistema operativo (Windows/Mac/Linux).</li>
               <li>Desde cuándo ocurre y si hubo cambios recientes.</li>
@@ -32,23 +32,23 @@ export default function ContactPage() {
 
         <div className="space-y-4">
           <div className="card p-6">
-            <div className="text-sm font-semibold text-slate-100">Atención</div>
-            <div className="mt-2 grid gap-2 text-sm text-slate-300">
+            <div className="text-sm font-semibold text-slate-900">Atención</div>
+            <div className="mt-2 grid gap-2 text-sm text-slate-900">
               <div>
-                <span className="text-slate-200 font-semibold">Ciudad:</span> {SITE.city}, San Juan
+                <span className="text-slate-900 font-semibold">Ciudad:</span> {SITE.city}, San Juan
               </div>
               <div>
-                <span className="text-slate-200 font-semibold">WhatsApp:</span> {SITE.whatsappNumberE164}
+                <span className="text-slate-900 font-semibold">WhatsApp:</span> {SITE.whatsappNumberE164}
               </div>
               <div>
-                <span className="text-slate-200 font-semibold">Horario:</span> Lun–Sáb · 9:00–19:00
+                <span className="text-slate-900 font-semibold">Horario:</span> Lun–Sáb · 9:00–19:00
               </div>
             </div>
           </div>
 
           <div className="card p-6">
-            <div className="text-sm font-semibold text-slate-100">Formulario (opcional)</div>
-            <p className="mt-2 text-sm text-slate-300">
+            <div className="text-sm font-semibold text-slate-900">Formulario (opcional)</div>
+            <p className="mt-2 text-sm text-slate-900">
               En esta versión el canal principal es WhatsApp. Si querés, agrego un formulario que guarde leads en Supabase.
             </p>
           </div>

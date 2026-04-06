@@ -52,7 +52,7 @@ export function AIChatWidget() {
 
             {step === 1 ? (
               <div className="space-y-2">
-                <div className="text-sm font-semibold text-slate-100">1. What device needs repair?</div>
+                <div className="text-sm font-semibold text-slate-100">1. Que Necesitas Reparar?</div>
                 <div className="grid gap-2">
                   {(['Computadora de esritorio', 'Notebook', 'impresora', 'otro'] as const).map((x) => (
                     <button
@@ -77,7 +77,7 @@ export function AIChatWidget() {
                   {(
                     [
                       'Anda Lenta',
-                      'Virus or malware',
+                      'Virus o malware',
                       'No Prende',
                       'Problema De Hadware',
                       'Otro Problema'
@@ -120,7 +120,7 @@ export function AIChatWidget() {
 
             {step === 4 ? (
               <div className="space-y-3">
-                <div className="text-sm font-semibold text-slate-100">4. Describe the problem</div>
+                <div className="text-sm font-semibold text-slate-100">4. Describe el Problema</div>
                 <textarea
                   value={details}
                   onChange={(e) => setDetails(e.target.value)}
