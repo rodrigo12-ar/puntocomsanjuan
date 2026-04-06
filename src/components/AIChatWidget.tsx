@@ -54,7 +54,7 @@ export function AIChatWidget() {
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-slate-100">1. What device needs repair?</div>
                 <div className="grid gap-2">
-                  {(['Desktop computer', 'Notebook', 'Printer', 'Other device'] as const).map((x) => (
+                  {(['Computadora de esritorio', 'Notebook', 'impresora', 'otro'] as const).map((x) => (
                     <button
                       key={x}
                       className="rounded-xl border border-slate-800 bg-slate-950/40 px-3 py-2 text-left text-sm text-slate-100 hover:bg-slate-900/60"
@@ -76,11 +76,11 @@ export function AIChatWidget() {
                 <div className="grid gap-2">
                   {(
                     [
-                      'Computer is slow',
+                      'Anda Lenta',
                       'Virus or malware',
-                      'Computer does not start',
-                      'Hardware problem',
-                      'Other issue'
+                      'No Prende',
+                      'Problema De Hadware',
+                      'Otro Problema'
                     ] as const
                   ).map((x) => (
                     <button
@@ -102,7 +102,7 @@ export function AIChatWidget() {
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-slate-100">3. What operating system are you using?</div>
                 <div className="grid gap-2">
-                  {(['Windows', 'Mac', 'Linux', "I don't know"] as const).map((x) => (
+                  {(['Windows', 'Mac', 'Linux', "No lo se"] as const).map((x) => (
                     <button
                       key={x}
                       className="rounded-xl border border-slate-800 bg-slate-950/40 px-3 py-2 text-left text-sm text-slate-100 hover:bg-slate-900/60"
