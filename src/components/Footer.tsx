@@ -15,7 +15,7 @@ export function Footer() {
               WhatsApp
             </a>
             <a
-              href="https://www.instagram.com/puntocomsanjuan"
+              href={BUSINESS.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
             >

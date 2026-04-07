@@ -6,6 +6,6 @@ export const SITE = {
   city: 'San Juan',
   country: 'AR',
   whatsappNumberE164: '+54 264 5072923',
-  whatsappWaMe: 'https://wa.me/542645072923'
+  whatsappWaMe: 'https://wa.me/542645072923',
+  instagramUrl: 'https://www.instagram.com/puntocomsanjuan'
 } as const;
-

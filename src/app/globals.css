@@ -2,14 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+}
+
 html,
 body {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background:
+    radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 32%),
+    radial-gradient(circle at 85% 10%, rgba(37, 99, 235, 0.08), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 52%, #eef4ff 100%);
   @apply text-slate-900 antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   @apply min-h-screen;
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.2);
 }
 
 a {
@@ -17,14 +32,167 @@ a {
 }
 
 .card {
-  @apply rounded-2xl border border-slate-200 bg-white shadow-soft;
+  @apply relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white/92 shadow-soft backdrop-blur-sm;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), transparent 55%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(148, 163, 184, 0.9);
+  box-shadow: 0 22px 45px -28px rgba(15, 23, 42, 0.42);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-dark;
+  @apply inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-soft;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.btn-primary:hover {
+  @apply bg-brand-dark;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px -18px rgba(14, 165, 233, 0.8);
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center rounded-full border border-slate-700 bg-white px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-100;
+  @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/90 px-5 py-3 text-sm font-semibold text-slate-700;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
+.btn-outline:hover {
+  @apply bg-slate-100 text-slate-900;
+  transform: translateY(-1px);
+  border-color: rgb(100 116 139);
+}
+
+.hero-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.94)),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 32%);
+}
+
+.section-kicker {
+  @apply inline-flex items-center rounded-full border border-sky-200 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sky-700;
+}
+
+.stat-chip {
+  @apply rounded-2xl border border-white/70 bg-white/85 px-4 py-3 shadow-sm backdrop-blur-sm;
+}
+
+.interactive-arrow {
+  transition: transform 180ms ease;
+}
+
+.group:hover .interactive-arrow {
+  transform: translateX(4px);
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealUp 700ms ease forwards;
+}
+
+.reveal-up-delay-1 {
+  animation-delay: 90ms;
+}
+
+.reveal-up-delay-2 {
+  animation-delay: 180ms;
+}
+
+.reveal-up-delay-3 {
+  animation-delay: 270ms;
+}
+
+.stagger-grid > * {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealUp 650ms ease forwards;
+}
+
+.stagger-grid > *:nth-child(1) {
+  animation-delay: 70ms;
+}
+
+.stagger-grid > *:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.stagger-grid > *:nth-child(3) {
+  animation-delay: 210ms;
+}
+
+.stagger-grid > *:nth-child(4) {
+  animation-delay: 280ms;
+}
+
+.stagger-grid > *:nth-child(5) {
+  animation-delay: 350ms;
+}
+
+.stagger-grid > *:nth-child(6) {
+  animation-delay: 420ms;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .btn-primary,
+  .btn-outline,
+  .interactive-arrow {
+    transition: none;
+  }
+
+  .card:hover,
+  .btn-primary:hover,
+  .btn-outline:hover {
+    transform: none;
+  }
+
+  .reveal-up,
+  .stagger-grid > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

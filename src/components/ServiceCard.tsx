@@ -14,9 +14,9 @@ export function ServiceCard({
   cta = 'Consultar'
 }: ServiceCardData) {
   return (
-    <div className="card p-6">
+    <div className="card group p-6">
       <div className="flex items-start gap-4">
-        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100">
+        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-sky-50 shadow-sm ring-1 ring-sky-100">
           <span className="text-xl">{icon}</span>
         </div>
 
@@ -30,7 +30,8 @@ export function ServiceCard({
             target="_blank"
             rel="noreferrer"
           >
-            {cta} →
+            <span>{cta}</span>
+            <span className="interactive-arrow">-&gt;</span>
           </a>
         </div>
       </div>

@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import { createClient } from '@/lib/supabase/server';
-import type { Post } from '@/lib/supabase/types';
 
 type Props = { params: { slug: string } };
 
@@ -17,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .maybeSingle();
 
   const title = data?.title ?? params.slug.replace(/-/g, ' ');
-  const description = `Artículo del blog de ${SITE.name} sobre mantenimiento y reparación de equipos en ${SITE.city}.`;
+  const description = `Articulo del blog de ${SITE.name} sobre mantenimiento y reparacion de equipos en ${SITE.city}.`;
 
   return {
     title,
@@ -80,10 +79,10 @@ export default async function BlogPostPage({ params }: Props) {
         <p>{post.content}</p>
       </div>
 
-      <div className="card mt-10 p-6">
-        <div className="text-base font-bold">¿Querés que lo revisemos?</div>
-        <p className="mt-2 text-sm text-slate-300">
-          Enviá tu consulta por WhatsApp y coordinamos diagnóstico en {SITE.city}.
+      <div className="card mt-10 p-6 text-slate-900">
+        <div className="text-base font-bold text-slate-900">Queres que lo revisemos?</div>
+        <p className="mt-2 text-sm text-slate-900">
+          Envia tu consulta por WhatsApp y coordinamos diagnostico en {SITE.city}.
         </p>
         <a className="btn-primary mt-5" href={SITE.whatsappWaMe} target="_blank" rel="noreferrer">
           Contactar por WhatsApp
@@ -91,12 +90,16 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
 
       <section className="mt-10">
-        <h2 className="text-xl font-extrabold tracking-tight">Artículos relacionados</h2>
+        <h2 className="text-xl font-extrabold tracking-tight">Articulos relacionados</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {related?.map((x: any) => (
-            <Link key={x.id} href={`/blog/${x.slug}`} className="card p-5 hover:border-slate-700 transition">
-              <div className="text-sm font-bold text-slate-50">{x.title}</div>
-              <div className="mt-2 text-sm font-semibold text-brand">Leer →</div>
+            <Link
+              key={x.id}
+              href={`/blog/${x.slug}`}
+              className="card p-5 text-slate-900 transition hover:border-slate-700"
+            >
+              <div className="text-sm font-bold text-slate-900">{x.title}</div>
+              <div className="mt-2 text-sm font-semibold text-slate-900">Leer -&gt;</div>
             </Link>
           ))}
         </div>
@@ -104,4 +107,3 @@ export default async function BlogPostPage({ params }: Props) {
     </article>
   );
 }
-

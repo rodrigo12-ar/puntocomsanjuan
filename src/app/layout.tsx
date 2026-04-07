@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       '@type': 'City',
       name: BUSINESS.city
     },
-    sameAs: []
+    sameAs: [BUSINESS.instagramUrl]
   };
 
   return (
@@ -69,4 +69,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
