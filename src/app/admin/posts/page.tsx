@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { createPostAction } from '@/app/admin/posts/actions';
+import { requireAdminUser } from '@/lib/admin-auth';
 import { createAdminSupabaseClient } from '@/lib/supabase/admin';
 
 export const metadata: Metadata = {
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export default async function AdminPostsPage({ searchParams }: Props) {
+  await requireAdminUser();
+
   const created = searchParams?.created === '1';
   const error = searchParams?.error ? decodeURIComponent(searchParams.error) : null;
 

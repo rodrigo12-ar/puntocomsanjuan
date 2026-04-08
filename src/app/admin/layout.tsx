@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AdminSignOutButton } from '@/components/AdminSignOutButton';
-import { requireAdminUser } from '@/lib/admin-auth';
 
 export const metadata: Metadata = {
   title: 'Admin'
 };
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  await requireAdminUser();
+export const dynamic = 'force-dynamic';
 
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-[calc(100vh-64px)] bg-slate-950">
       <div className="mx-auto max-w-6xl px-4 py-10">

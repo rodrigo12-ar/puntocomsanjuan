@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { requireAdminUser } from '@/lib/admin-auth';
 import { createAdminSupabaseClient } from '@/lib/supabase/admin';
 
 export const metadata: Metadata = {
@@ -12,6 +13,8 @@ type PageViewRow = {
 };
 
 export default async function AdminDashboardPage() {
+  await requireAdminUser();
+
   let totalVisits = 0;
   let visitsToday = 0;
   let uniqueVisitors = 0;
